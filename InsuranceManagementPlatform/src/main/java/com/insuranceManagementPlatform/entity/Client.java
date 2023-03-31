@@ -16,7 +16,7 @@ public class Client {
 
 	@Id
 	@Email
-	private String email;
+	private String emailId;
 	private String mobileNumber;
 	private String name;
 	private String dateOfBirth;
