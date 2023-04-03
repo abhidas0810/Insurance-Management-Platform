@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,10 +27,11 @@ public class InsurancePolicy {
 	private Date startDate;
 	private Date endDate;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	private Client client;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "insurancePolicy")
+	@JsonIgnore
 	private List<Claim> claims = new ArrayList<>();
 
 }

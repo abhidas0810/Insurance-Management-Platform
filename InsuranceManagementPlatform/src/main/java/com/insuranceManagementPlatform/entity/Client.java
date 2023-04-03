@@ -3,6 +3,8 @@ package com.insuranceManagementPlatform.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -24,6 +26,7 @@ public class Client {
 	private String password;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
+	@JsonIgnore
 	private List<InsurancePolicy> insurancePolicies = new ArrayList<>();
 
 }

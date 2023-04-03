@@ -2,7 +2,6 @@ package com.insuranceManagementPlatform.entity;
 
 import java.sql.Date;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -20,7 +19,7 @@ public class Claim {
 	private Date claimDate;
 	private String claimStatus;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	private InsurancePolicy insurancePolicy;
-	
+
 }

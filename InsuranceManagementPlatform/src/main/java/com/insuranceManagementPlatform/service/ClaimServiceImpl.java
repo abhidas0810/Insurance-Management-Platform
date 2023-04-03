@@ -1,5 +1,6 @@
 package com.insuranceManagementPlatform.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,7 +75,8 @@ public class ClaimServiceImpl implements ClaimService {
 		}
 		Claim registeredClaim = claimRepository.findById(claimNumber)
 				.orElseThrow(() -> new ClaimException("no claim found with claimNumber " + claimNumber));
-		registeredClaim.setClaimDate(claim.getClaimDate());
+		Date date = claim.getClaimDate();
+		registeredClaim.setClaimDate(date);
 		registeredClaim.setClaimStatus(claim.getClaimStatus());
 		registeredClaim.setDescription(claim.getDescription());
 		registeredClaim.setInsurancePolicy(claim.getInsurancePolicy());

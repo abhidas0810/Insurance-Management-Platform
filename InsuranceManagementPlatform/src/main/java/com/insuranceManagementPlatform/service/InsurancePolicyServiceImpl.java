@@ -93,6 +93,9 @@ public class InsurancePolicyServiceImpl implements InsurancePolicyService {
 	public InsurancePolicy deleteInsurancePolicy(Integer policyNumber) throws InsurancePolicyException {
 		InsurancePolicy registeredInsurancePolicy = insurancePolicyRepository.findById(policyNumber).orElseThrow(
 				() -> new InsurancePolicyException("Insurance Policy not found with policyNumber " + policyNumber));
+		Client client = clientRepository.findById(registeredInsurancePolicy.getClient().getEmailId()).orElseThrow(
+				() -> new InsurancePolicyException("client not registered whose policy you want to create."));
+		client.getInsurancePolicies().remove(registeredInsurancePolicy);
 		insurancePolicyRepository.delete(registeredInsurancePolicy);
 		return registeredInsurancePolicy;
 	}
