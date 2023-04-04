@@ -74,12 +74,10 @@ public class ClaimServiceImpl implements ClaimService {
 			throw new ClaimException("claimNumber mismatch.");
 		}
 		Claim registeredClaim = claimRepository.findById(claimNumber)
-				.orElseThrow(() -> new ClaimException("no claim found with claimNumber " + claimNumber));
-		Date date = claim.getClaimDate();
-		registeredClaim.setClaimDate(date);
+				.orElseThrow(() -> new ClaimException("no claim found with claimNumber " + claimNumber));		
+		registeredClaim.setClaimDate(claim.getClaimDate());
 		registeredClaim.setClaimStatus(claim.getClaimStatus());
 		registeredClaim.setDescription(claim.getDescription());
-		registeredClaim.setInsurancePolicy(claim.getInsurancePolicy());
 		return claimRepository.save(registeredClaim);
 	}
 
