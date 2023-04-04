@@ -20,6 +20,8 @@ import com.insuranceManagementPlatform.exception.ClaimException;
 import com.insuranceManagementPlatform.exception.InsurancePolicyException;
 import com.insuranceManagementPlatform.service.ClaimService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api")
 public class ClaimController {
@@ -35,7 +37,7 @@ public class ClaimController {
 	 */
 	@PostMapping("/claims")
 	public ResponseEntity<Claim> createNewClaimHandler(@RequestParam(name = "policyNumber") Integer policyNumber,
-			@RequestBody Claim claim) throws ClaimException, InsurancePolicyException {
+			@Valid @RequestBody Claim claim) throws ClaimException, InsurancePolicyException {
 		return new ResponseEntity<Claim>(claimService.createNewClaim(policyNumber, claim), HttpStatus.CREATED);
 	}
 
@@ -61,7 +63,7 @@ public class ClaimController {
 	 * claim by claim number.
 	 */
 	@PutMapping("/claims/{id}")
-	public ResponseEntity<Claim> updateClaimHandler(@PathVariable("id") Integer claimNumber, Claim claim)
+	public ResponseEntity<Claim> updateClaimHandler(@PathVariable("id") Integer claimNumber, @Valid Claim claim)
 			throws ClaimException {
 		return new ResponseEntity<Claim>(claimService.updateClaim(claimNumber, claim), HttpStatus.ACCEPTED);
 	}

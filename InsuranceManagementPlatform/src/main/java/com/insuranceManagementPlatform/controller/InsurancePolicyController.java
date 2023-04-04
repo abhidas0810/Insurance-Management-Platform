@@ -20,6 +20,8 @@ import com.insuranceManagementPlatform.exception.ClientException;
 import com.insuranceManagementPlatform.exception.InsurancePolicyException;
 import com.insuranceManagementPlatform.service.InsurancePolicyService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api")
 public class InsurancePolicyController {
@@ -35,7 +37,7 @@ public class InsurancePolicyController {
 	 */
 	@PostMapping("/policies")
 	public ResponseEntity<InsurancePolicy> createNewInsurancePolicyHandler(@RequestParam(name = "emailId") String emailId,
-			@RequestBody InsurancePolicy insurancePolicy) throws InsurancePolicyException, ClientException {
+			@Valid @RequestBody InsurancePolicy insurancePolicy) throws InsurancePolicyException, ClientException {
 		return new ResponseEntity<InsurancePolicy>(
 				insurancePolicyService.createNewInsurancePolicy(emailId, insurancePolicy), HttpStatus.CREATED);
 	}
@@ -64,7 +66,7 @@ public class InsurancePolicyController {
 	 */
 	@PutMapping("/policies/{id}")
 	public ResponseEntity<InsurancePolicy> updateInsurancePolicyHandler(@PathVariable("id") Integer policyNumber,
-			@RequestBody InsurancePolicy insurancePolicy) throws InsurancePolicyException {
+			@Valid @RequestBody InsurancePolicy insurancePolicy) throws InsurancePolicyException {
 		return new ResponseEntity<InsurancePolicy>(
 				insurancePolicyService.updateInsurancePolicy(policyNumber, insurancePolicy), HttpStatus.ACCEPTED);
 	}

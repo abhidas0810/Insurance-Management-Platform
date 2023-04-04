@@ -61,10 +61,7 @@ public class ClientServiceImpl implements ClientService {
 	 * Update a client's information.
 	 */
 	@Override
-	public Client updateClient(String emailId, Client client) throws ClientException {
-		if (!emailId.equals(client.getEmailId())) {
-			throw new ClientException("Client ID does not match.");
-		}
+	public Client updateClient(String emailId, Client client) throws ClientException {		
 		Client registeredClient = clientRepository.findById(emailId)
 				.orElseThrow(() -> new ClientException("Client not found with emailId " + emailId));
 		registeredClient.setAddress(client.getAddress());

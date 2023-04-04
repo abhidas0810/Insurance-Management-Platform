@@ -19,6 +19,8 @@ import com.insuranceManagementPlatform.entity.Client;
 import com.insuranceManagementPlatform.exception.ClientException;
 import com.insuranceManagementPlatform.service.ClientService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api")
 public class ClientController {
@@ -40,7 +42,7 @@ public class ClientController {
 	 * all the data.
 	 */
 	@PostMapping("/clients")
-	public ResponseEntity<Client> registerClientHandler(@RequestBody Client client) throws ClientException {
+	public ResponseEntity<Client> registerClientHandler(@Valid @RequestBody Client client) throws ClientException {
 		client.setPassword(passwordEncoder.encode(client.getPassword()));
 		return new ResponseEntity<Client>(clientService.registerClient(client), HttpStatus.CREATED);
 	}
@@ -67,7 +69,7 @@ public class ClientController {
 	 * specific id.
 	 */
 	@PutMapping("/clients/{id}")
-	public ResponseEntity<Client> updateClientHandler(@PathVariable("id") String emailId, @RequestBody Client client)
+	public ResponseEntity<Client> updateClientHandler(@PathVariable("id") String emailId, @Valid @RequestBody Client client)
 			throws ClientException {
 		return new ResponseEntity<Client>(clientService.updateClient(emailId, client), HttpStatus.ACCEPTED);
 	}
