@@ -23,30 +23,31 @@ import com.insuranceManagementPlatform.service.ClaimService;
 @RestController
 @RequestMapping("/api")
 public class ClaimController {
-	
+
 	/**
 	 * claimService : dependency of ClaimService.
 	 */
 	@Autowired
 	private ClaimService claimService;
-	
+
 	/**
 	 * taking the request from the client and creating new claim.
 	 */
 	@PostMapping("/claims")
-	public ResponseEntity<Claim> createNewClaimHandler(@RequestParam(name = "id") Integer policyNumber,
+	public ResponseEntity<Claim> createNewClaimHandler(@RequestParam(name = "policyNumber") Integer policyNumber,
 			@RequestBody Claim claim) throws ClaimException, InsurancePolicyException {
 		return new ResponseEntity<Claim>(claimService.createNewClaim(policyNumber, claim), HttpStatus.CREATED);
 	}
-	
+
 	/**
-	 * taking the request from the client and returning details of specific claim by claim number.
+	 * taking the request from the client and returning details of specific claim by
+	 * claim number.
 	 */
 	@GetMapping("/claims/{id}")
 	public ResponseEntity<Claim> fetchClaimHandler(@PathVariable("id") Integer claimNumber) throws ClaimException {
 		return new ResponseEntity<Claim>(claimService.fetchClaim(claimNumber), HttpStatus.OK);
 	}
-	
+
 	/**
 	 * taking the request from the client and returning details of all claims.
 	 */
@@ -54,18 +55,20 @@ public class ClaimController {
 	public ResponseEntity<List<Claim>> fetchClaimsHandler() throws ClaimException {
 		return new ResponseEntity<List<Claim>>(claimService.fetchClaims(), HttpStatus.OK);
 	}
-	
+
 	/**
-	 * taking the request from the client and returning updated details of specific claim by claim number.
+	 * taking the request from the client and returning updated details of specific
+	 * claim by claim number.
 	 */
 	@PutMapping("/claims/{id}")
 	public ResponseEntity<Claim> updateClaimHandler(@PathVariable("id") Integer claimNumber, Claim claim)
 			throws ClaimException {
 		return new ResponseEntity<Claim>(claimService.updateClaim(claimNumber, claim), HttpStatus.ACCEPTED);
 	}
-	
+
 	/**
-	 * taking the request from the client and returning deleted details of specific claim by claim number from the database.
+	 * taking the request from the client and returning deleted details of specific
+	 * claim by claim number from the database.
 	 */
 	@DeleteMapping("/claims/{id}")
 	public ResponseEntity<Claim> deleteClaimHandler(@PathVariable("id") Integer claimNumber) throws ClaimException {

@@ -12,6 +12,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
 
 @Entity
@@ -21,13 +24,23 @@ public class InsurancePolicy {
 	@Id
 	@GeneratedValue
 	private Integer policyNumber;
+	@NotNull
 	private String type;
+	@NotNull
+	@Positive(message = "The coverage amount must be a positive number.")
 	private Double coverageAmount;
+	@NotNull
+	@Positive(message = "The premium amount must be a positive number.")
 	private Double premium;
+	@NotNull
+	@Future(message = "The start date must be a valid date and cannot be in the past.")
 	private Date startDate;
+	@NotNull
+	@Future(message = "The end date must be a valid date and cannot be in the past.")
 	private Date endDate;
 
 	@ManyToOne
+	@NotNull
 	private Client client;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "insurancePolicy")

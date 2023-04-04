@@ -34,7 +34,7 @@ public class InsurancePolicyController {
 	 * taking the request from the client and creating new policy.
 	 */
 	@PostMapping("/policies")
-	public ResponseEntity<InsurancePolicy> createNewInsurancePolicyHandler(@RequestParam(name = "id") String emailId,
+	public ResponseEntity<InsurancePolicy> createNewInsurancePolicyHandler(@RequestParam(name = "emailId") String emailId,
 			@RequestBody InsurancePolicy insurancePolicy) throws InsurancePolicyException, ClientException {
 		return new ResponseEntity<InsurancePolicy>(
 				insurancePolicyService.createNewInsurancePolicy(emailId, insurancePolicy), HttpStatus.CREATED);

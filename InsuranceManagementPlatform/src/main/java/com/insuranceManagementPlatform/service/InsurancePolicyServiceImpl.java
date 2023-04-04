@@ -71,9 +71,6 @@ public class InsurancePolicyServiceImpl implements InsurancePolicyService {
 	@Override
 	public InsurancePolicy updateInsurancePolicy(Integer policyNumber, InsurancePolicy insurancePolicy)
 			throws InsurancePolicyException {
-		if (policyNumber != insurancePolicy.getPolicyNumber()) {
-			throw new InsurancePolicyException("policyNumber mismatch.");
-		}
 		InsurancePolicy registeredInsurancePolicy = insurancePolicyRepository.findById(policyNumber).orElseThrow(
 				() -> new InsurancePolicyException("Insurance Policy not found with policyNumber " + policyNumber));
 		registeredInsurancePolicy.setClient(insurancePolicy.getClient());
