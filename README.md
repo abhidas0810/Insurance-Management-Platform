@@ -74,6 +74,10 @@ Mobile number must be of 10 digits.
 
 ### Insurance_Policy Module
 
+<p align="center">
+  <img src="https://www.linkpicture.com/q/1_1_5.png"/>
+</p>
+
 * POST- http://localhost:8888/api/policies : Create policy details.
 Date must be in YYYY-MM-DD format and must be in future.
 
