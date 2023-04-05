@@ -1,7 +1,7 @@
 # Insurance-Management-Platform
-
+<div align="center">
 ![Logo](https://www.linkpicture.com/q/Insurance-Management-Platform-Logo.png)
-
+</div>
 
 ## About
 
