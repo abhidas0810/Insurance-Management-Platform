@@ -52,28 +52,48 @@ Start the server
 
 ## API Module Endpoints
 
+### Login Module
+
+GET- http://localhost:8888/api/logIn : To access the system, Clint is required to log in using their email address and password. Upon successful authentication, an authorization token will be generated, which Clint must copy and paste into the designated "Authorize" field located in the top right-hand corner of the screen in order to gain access to the authorized areas of the system.
+
 ### Client Module
 
 * POST- http://localhost:8888/api/clients : Register client details.
+Email id must be a valid email.
+Date must be in YYYY-MM-DD format and must be in past.
+Mobile number must be of 10 digits.
+
 * GET- http://localhost:8888/api/clients : Get all client details.
 * GET - http://localhost:8888/api/clients/id : Get details of specific client using emailId.
 * PUT - http://localhost:8888/api/clients/id : Update the details of specific client using emailId.
+Email id must be a valid email.
+Date must be in YYYY-MM-DD format.
+Mobile number must be of 10 digits.
+
 * DELETE - http://localhost:8888/api/clients/id : Delete the details of specific client using emailId.
 
 ### Insurance_Policy Module
 
 * POST- http://localhost:8888/api/policies : Create policy details.
+Date must be in YYYY-MM-DD format and must be in future.
+
 * GET- http://localhost:8888/api/policies : Get all policies details.
 * GET - http://localhost:8888/api/policies/id : Get details of specific policy using policyNumber.
 * PUT - http://localhost:8888/api/policies/id : Update the details of specific policy using policyNumber.
+Date must be in YYYY-MM-DD format and must be in future.
+
 * DELETE - http://localhost:8888/api/policies/id : Delete the details of specific policy using policyNumber.
 
 ### Claim Module
 
 * POST- http://localhost:8888/api/claims : Create claim details.
+Date must be in YYYY-MM-DD format and must be in past.
+
 * GET- http://localhost:8888/api/claims : Get all claims details.
 * GET - http://localhost:8888/api/claims/id : Get details of specific claim using claimNumber.
 * PUT - http://localhost:8888/api/claims/id : Update the details of specific claim using claimNumber.
+Date must be in YYYY-MM-DD format and must be in past.
+
 * DELETE - http://localhost:8888/api/claims/id : Delete the details of specific claim using claimNumber.
 
 <!-- ![Logo](https://i.postimg.cc/kM0tpJKd/p2.png) -->
