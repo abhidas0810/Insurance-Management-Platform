@@ -69,7 +69,7 @@ public class ClaimServiceImpl implements ClaimService {
 	 * Update a claim's information.
 	 */
 	@Override
-	public Claim updateClaim(Integer claimNumber, Claim claim) throws ClaimException {		
+	public Claim updateClaim(Integer claimNumber, Claim claim) throws ClaimException {
 		Claim registeredClaim = claimRepository.findById(claimNumber)
 				.orElseThrow(() -> new ClaimException("no claim found with claimNumber " + claimNumber));
 		registeredClaim.setClaimDate(claim.getClaimDate());

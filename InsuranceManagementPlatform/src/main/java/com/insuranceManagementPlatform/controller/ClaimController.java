@@ -63,7 +63,7 @@ public class ClaimController {
 	 * claim by claim number.
 	 */
 	@PutMapping("/claims/{id}")
-	public ResponseEntity<Claim> updateClaimHandler(@PathVariable("id") Integer claimNumber, @Valid Claim claim)
+	public ResponseEntity<Claim> updateClaimHandler(@PathVariable("id") Integer claimNumber, @Valid @RequestBody Claim claim)
 			throws ClaimException {
 		return new ResponseEntity<Claim>(claimService.updateClaim(claimNumber, claim), HttpStatus.ACCEPTED);
 	}

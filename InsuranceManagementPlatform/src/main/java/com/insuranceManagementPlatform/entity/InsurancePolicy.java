@@ -40,7 +40,6 @@ public class InsurancePolicy {
 	private Date endDate;
 
 	@ManyToOne
-	@NotNull
 	private Client client;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "insurancePolicy")

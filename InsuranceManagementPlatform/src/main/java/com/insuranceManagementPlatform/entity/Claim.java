@@ -28,7 +28,6 @@ public class Claim {
 	private String claimStatus;
 
 	@ManyToOne
-	@NotNull
 	private InsurancePolicy insurancePolicy;
 
 }
