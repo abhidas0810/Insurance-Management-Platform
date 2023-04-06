@@ -58,6 +58,10 @@ GET- http://localhost:8888/api/logIn : To access the system, Clint is required t
 
 ### Client Module
 
+<p align="center">
+  <img src="https://www.linkpicture.com/q/1_2_4.png"/>
+</p>
+
 * POST- http://localhost:8888/api/clients : Register client details.
 Email id must be a valid email.
 Date must be in YYYY-MM-DD format and must be in past.
@@ -89,6 +93,10 @@ Date must be in YYYY-MM-DD format and must be in future.
 * DELETE - http://localhost:8888/api/policies/id : Delete the details of specific policy using policyNumber.
 
 ### Claim Module
+
+<p align="center">
+  <img src=""/>
+</p>
 
 * POST- http://localhost:8888/api/claims : Create claim details.
 Date must be in YYYY-MM-DD format and must be in past.
