@@ -54,6 +54,10 @@ Start the server
 
 ### Login Module
 
+<p align="center">
+  <img src="https://www.linkpicture.com/q/0login_1.png"/>
+</p>
+
 GET- http://localhost:8888/api/logIn : To access the system, Clint is required to log in using their email address and password. Upon successful authentication, an authorization token will be generated, which Clint must copy and paste into the designated "Authorize" field located in the top right-hand corner of the screen in order to gain access to the authorized areas of the system.
 
 ### Client Module
