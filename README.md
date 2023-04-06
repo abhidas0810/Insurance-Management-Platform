@@ -95,7 +95,7 @@ Date must be in YYYY-MM-DD format and must be in future.
 ### Claim Module
 
 <p align="center">
-  <img src=""/>
+  <img src="https://www.linkpicture.com/q/1_3_3.png"/>
 </p>
 
 * POST- http://localhost:8888/api/claims : Create claim details.
