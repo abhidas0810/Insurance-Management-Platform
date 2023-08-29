@@ -11,7 +11,7 @@ The system has three main domain models: Client, InsurancePolicy, and Claim. A C
 
 ## Tech Stack
 
-**Client:** Java, SpringBoot, Spring Data JPA, Hibernate, Spring Security JUnit and Mockito
+**Client:** Java, SpringBoot, Spring Data JPA, Hibernate, Spring Security, JUnit and Mockito
 
 **RDBMS:** MySQL
 
